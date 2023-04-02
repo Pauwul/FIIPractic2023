@@ -1,0 +1,9 @@
+createFile:
+  handler: src/createFile.handler
+  role: IamLambdaExecutionRole
+  events:
+    - http:
+        cors: true
+        method: post
+        path: /
+        authorizer: customAuthorizer

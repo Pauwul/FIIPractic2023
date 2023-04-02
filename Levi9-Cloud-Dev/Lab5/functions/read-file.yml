@@ -1,0 +1,9 @@
+createFile:
+  handler: src/readFile.handler
+  role: IamLambdaExecutionRole
+  events:
+    - http:
+        cors: true
+        method: get
+        path: /{filename}
+        authorizer: customAuthorizer

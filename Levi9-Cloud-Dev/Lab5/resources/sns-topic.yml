@@ -1,0 +1,12 @@
+Resources:
+  FilesTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: files-topic
+
+  SNSSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      TopicArn: !Ref FilesTopic
+      Protocol: email
+      Endpoint: cosmin.petrila.cp@gmail.com

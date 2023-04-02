@@ -1,0 +1,19 @@
+app: demo-fiipractic
+service: files
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+
+functions:
+  - ${file(functions/custom-authorizer.yml)}
+  - ${file(functions/create-file.yml)}
+  - ${file(functions/read-file.yml)}
+
+resources:
+  - ${file(resources/iam-lambda-role.yml)}
+  - ${file(resources/dynamodb-files.yml)}
+  - ${file(resources/sns-topic.yml)}
